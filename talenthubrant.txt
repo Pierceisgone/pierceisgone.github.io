@@ -1,1 +1,18 @@
+Rant about why I hate the Roblox Talent-Hub and why it is in inferior to the original, no longer usuable, Developer-Forum Collaboration Section.
+This is purely anecdotal.
 
+How finding developers on Roblox original worked went like this: Go onto the Developer-Forum, go to the Collaboration Section, and then make a post.
+And then wait a while for people to get back to you. It was simple, it did everything you needed it to do, people were active there, it was easy to scroll through portfolios,
+easy to find job-listings, etc. However, Roblox decided to replace this with something called the Talent-Hub. It was supposed to be a better alternative for finding work.
+Instead of using a section in the Developer-Forum, we were going to have a dedicated site... Sounds good on paper, eh? Well, in reality it was a subbar alternative.
+
+The Talent-Hub, for over a year (Based on my memory) didn't even support basic features like Markdown. And (To this day) you cannot link any external contact information.
+You are supposed to communicate over Roblox somehow (I imagine via the Developer-Forum, since it has direct messages. Or on regular Roblox via DMs as well). 
+This means you cannot use stuff like Discord for contacting people. You have to deal with Roblox, which has (Sometimes annoying) chat filters, and lacks the ability to send images,
+or links to sites outside of Roblox. (Though, the Developer-Forums DMs do allow for these, but regular Roblox does not). If you put your Discord tag on your Talent-Hub page, your page is hidden,
+and then no one can find you.
+
+It was a bad alternative when it came out, and it was forced onto developers before it was ready. The Collaboration Section was permanently shutdown. Even before stuff like Markdown support was fianlly added.
+But besides being a lackluster option that was forced onto to us, and even though it's gotten better, it is still, in my opinion, worse, and more limited, there is also the issue of ID verification.
+
+Unless you ID verify with Roblox, the only developers you
