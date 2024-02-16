@@ -15,4 +15,10 @@ and then no one can find you.
 It was a bad alternative when it came out, and it was forced onto developers before it was ready. The Collaboration Section was permanently shutdown. Even before stuff like Markdown support was fianlly added.
 But besides being a lackluster option that was forced onto to us, and even though it's gotten better, it is still, in my opinion, worse, and more limited, there is also the issue of ID verification.
 
-Unless you ID verify with Roblox, the only developers you
+Unless you ID verify with Roblox, the only developers you can see are who are ID verified. And the majority of the developers who are verified tend to be developers who are working on big/front page games.
+Basically, if you're a small developer or jsut starting out, and aren't ID verified, then it'd be like trying to get game devs from places like EA, Ubisoft, Blizzard, Bethesda, Rockstar, etc. To help you.
+
+While yes, 3rd party methods of finding developers do exist, the ones I have tried (Being Discord servers, not aware of any other alternatives at the moment), haven't been the best experience. (And one being downright awful).
+
+Roblox forced a sub-par alternative onto it's users, and made it much harder for new developers to get a team started. I feel like the only viable way to get into making a developer team on Roblox is to have friends who are already delelopers,
+or are interested in becoming one and helping you. Roblox's push to make a cleaner, better, and more professional alternative, was anything but. It is inferior, limiting, and has overall negatively impacted the ability to find developers.
