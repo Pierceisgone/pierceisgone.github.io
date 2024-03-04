@@ -18,6 +18,23 @@
   boot priority set to boot from the USB drive first. However, you may still <br>
   need to go into your BIOS/UEFI and disable Secure Boot.<br><br>
 
-  <code>testplswork lorem ipsum nein. Alt f4 then uhhh, lsblk idk lolz</code>
-  
+ Once booted, check to make sure your internet connection is working by running:<br>
+  <code>ping www.archlinux.org</code><br><br>
+  Time to partition the disks!<br>
+  ADD HOW TO PARTITION (I'm not doing this tonight lol)<br><br>
+  Time to install!<br>
+  Run <code>pacstrap -K /mnt linux linux-firmware base base-devel</code><br>
+  <code>base-devel</code> isn't necessary, but it can be useful to have, so I<br>
+  reccomend install it too.<br>
+  This will install the base system. However, it will be lacking a lot of<br>
+  useful tools. We will install some extra software later--e.g. a text editor,<br>
+  browser, and DE (Desktop Enviornment).<br><br>
+  Generating the <code>fstab</code> file<br>
+  The <code>fstab</code> file is used to mount your disks upon boot.<br>
+  WARNING: It is important that you use the <code>-U</code> argument here.<br>
+  You want the drives to be recognised by UUID. This is because the name of<br>
+  the drive my change if a disk is added/removed, or dies.<br>
+  Going by UUID will prevent issues of the wrong drive being mounted to the<br>
+  wrong directoy. To generate the <code>fstab</code> file, run:<br>
+  <code>genfstab -U /mnt >> /mnt/etc/fstab</code><br>
 </center>
