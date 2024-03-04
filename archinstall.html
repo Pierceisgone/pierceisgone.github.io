@@ -6,6 +6,7 @@
   }
 </style>
 <center>
+  <h1>Introduction</h1>
   Hello, this is an Arch Linux installation tutorial designed for new Linux users<br>
   who want to jump head first into a DIY Linux distrobution. This guide assumes you<br>
   already know what specs your PC, that you know what CPU architecture you have,<br>
@@ -20,16 +21,19 @@
 
  Once booted, check to make sure your internet connection is working by running:<br>
   <code>ping www.archlinux.org</code><br><br>
-  Time to partition the disks!<br>
+  <h1>Partitioning the disk</h1><br>
+  WARNING: Make sure any and all data is backup from your drives before<br>
+  proceeding. Once you repartion and reformat the drives, they will be<br>
+  wiped entirely.
   ADD HOW TO PARTITION (I'm not doing this tonight lol)<br><br>
-  Time to install!<br>
-  Run <code>pacstrap -K /mnt linux linux-firmware base base-devel</code><br>
-  <code>base-devel</code> isn't necessary, but it can be useful to have, so I<br>
-  reccomend install it too.<br>
+  <h1>Installation</h1><br>
   This will install the base system. However, it will be lacking a lot of<br>
   useful tools. We will install some extra software later--e.g. a text editor,<br>
-  browser, and DE (Desktop Enviornment).<br><br>
-  Generating the <code>fstab</code> file<br>
+  browser, and DE (Desktop Enviornment). Run:<br> 
+  <code>pacstrap -K /mnt linux linux-firmware base base-devel</code><br>
+  While <code>base-devel</code> isn't necessary, it can be useful to have, so I<br>
+  reccomend install it too.<br><br>
+  <h1>Generating the <code>fstab</code> file</h1><br>
   The <code>fstab</code> file is used to mount your disks upon boot.<br>
   WARNING: It is important that you use the <code>-U</code> argument here.<br>
   You want the drives to be recognised by UUID. This is because the name of<br>
