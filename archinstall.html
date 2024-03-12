@@ -24,8 +24,23 @@
   <h1>Partitioning the disk</h1><br>
   WARNING: Make sure any and all data is backup from your drives before<br>
   proceeding. Once you repartion and reformat the drives, they will be<br>
-  wiped entirely.
-  ADD HOW TO PARTITION (I'm not doing this tonight lol)<br><br>
+  wiped entirely.<br><br>
+  If you're system has multiple drives, I would reccommend disconnecting all<br>
+  of them except for the drive you want to use as a boot drive. This will make<br>
+  things easier. And this guide will continue assuming you only have one drive installed.<br><br>
+  First off, list your drives with <code>lsblk</code>. If you're using an NVMe drive,<br>
+  it should be called <code>nvme0n1</code>. If you're on a SATA drive, it should say <code>sda1</code>.<br><br>
+  To start partitioning, run <code>cfdisk /dev/YOUR_DRIVE</code>. Next, create a new<br>
+  partition, and set the size to <code>300M</code>. Then mark the partition as bootable.<br>
+  You can do this while pressing B with the partition selected.<br>
+  You can optionally make a swap partition. While not required, I would reccomend making one.<br>
+  Simply create a new partion. Ideally you should make it as big as a quater of your RAM.<br>
+  E.g. if you have 16GB of RAM, you should make the swap partition size <code>4G</code>.<br>
+  However, you can make it bigger (Or smaller) if you feel the need.<br>
+  Next, create your root partition. Unless you need any additional partitions, simply<br>
+  allocate any remaining space to it.<br><br>
+  
+  <br><br>
   <h1>Installation</h1><br>
   This will install the base system. However, it will be lacking a lot of<br>
   useful tools. We will install some extra software later--e.g. a text editor,<br>
