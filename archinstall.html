@@ -32,7 +32,7 @@
   it should be called <code>nvme0n1</code>. If you're on a SATA drive, it should say <code>sda1</code>.<br><br>
   To start partitioning, run <code>cfdisk /dev/YOUR_DRIVE</code>. Next, create a new<br>
   partition, and set the size to <code>300M</code>. Then mark the partition as bootable.<br>
-  You can do this while pressing B with the partition selected.<br>
+  You can do this by pressing B with the partition selected.<br>
   You can optionally make a swap partition. While not required, I would reccomend making one.<br>
   Simply create a new partion. Ideally you should make it as big as a quater of your RAM.<br>
   E.g. if you have 16GB of RAM, you should make the swap partition size <code>4G</code>.<br>
@@ -54,6 +54,6 @@
   You want the drives to be recognised by UUID. This is because the name of<br>
   the drive my change if a disk is added/removed, or dies.<br>
   Going by UUID will prevent issues of the wrong drive being mounted to the<br>
-  wrong directoy. To generate the <code>fstab</code> file, run:<br>
-  <code>genfstab -U /mnt >> /mnt/etc/fstab</code><br>
+  wrong directoy.<br><br>
+  To generate the <code>fstab</code> file, run <code>genfstab -U /mnt >> /mnt/etc/fstab</code><br>
 </center>
