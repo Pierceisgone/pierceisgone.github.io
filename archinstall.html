@@ -49,7 +49,7 @@
   <code>pacstrap -K /mnt linux linux-firmware base base-devel</code><br>
   While <code>base-devel</code> isn't necessary, it can be useful to have, so I<br>
   reccomend installing it too.<br><br>
-  <h2>Generating the <code>fstab</code> file</h2><br>
+ <h2>Configuring the system</h2><br><br>
   The <code>fstab</code> file is used to mount your disks upon boot.<br>
   WARNING: It is important that you use the <code>-U</code> argument here.<br>
   You want the drives to be recognised by UUID. This is because the name of<br>
@@ -57,8 +57,7 @@
   Going by UUID will prevent issues of the wrong drive being mounted to the<br>
   wrong directoy.<br><br>
   To generate the <code>fstab</code> file, run <code>genfstab -U /mnt >> /mnt/etc/fstab</code><br><br>
-  <h2>Configuring the system</h2><br><br>
-  To start off, <code>chroot</code> into the new system with <code>arch-chroot /mnt</code><br><br>
+  Now, <code>chroot</code> into the new system with <code>arch-chroot /mnt</code><br><br>
   At this point you will now need a text editor. Run <code>pacman -S nano</code><br>
   This guide will be using GNU nano, however, you may use whatever your preffered text editor is.<br><br>
   Now we need to generate locals for the system, to do this run <code>nano /etc/locale.gen</code><br>
