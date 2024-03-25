@@ -39,23 +39,23 @@
  Once booted, check to make sure your internet connection is working by running:<br>
   <code>ping https://archlinux.org/</code><br><br>
   <h1>Partitioning the disk</h1><br>
-  WARNING: Make sure any and all data is backup from your drives before<br>
-  proceeding. Once you repartion and reformat the drives, they will be<br>
+  WARNING: Make sure any and all data is backup from your drives before
+  proceeding. Once you repartion and reformat the drives, they will be
   wiped entirely.<br><br>
-  If you're system has multiple drives, I would reccommend disconnecting all<br>
-  of them except for the drive you want to use as a boot drive. This will make<br>
+  If you're system has multiple drives, I would reccommend disconnecting all
+  of them except for the drive you want to use as a boot drive. This will make
   things easier. And this guide will continue assuming you only have one drive installed.<br><br>
-  First off, list your drives with <code>lsblk</code>. If you're using an NVMe drive,<br>
-  it should be called <code>nvme0n1</code>. If you're on a SATA drive, it should say <code>sda</code>.<br>
+  First off, list your drives with <code>lsblk</code>. If you're using an NVMe drive,
+  it should be called <code>nvme0n1</code>. If you're on a SATA drive, it should say <code>sda</code>.
   If installing on a virtual machine, it should either be <code>sda</code> or <code>vda</code><br><br>
-  To start partitioning, run <code>cfdisk /dev/YOUR_DRIVE</code>. Next, create a new<br>
-  partition, and set the size to <code>300M</code>. Then mark the partition as bootable.<br>
-  You can do this by pressing B with the partition selected.<br>
-  You can optionally make a swap partition. While not required, I would reccomend making one.<br>
-  Simply create a new partion. Ideally you should make it as big as a quater of your RAM.<br>
-  E.g. if you have 16GB of RAM, you should make the swap partition size <code>4G</code>.<br>
-  However, you can make it bigger (Or smaller) if you feel the need.<br>
-  Next, create your root partition. Unless you need any additional partitions, simply<br>
+  To start partitioning, run <code>cfdisk /dev/YOUR_DRIVE</code>. Next, create a new
+  partition, and set the size to <code>300M</code>. Then mark the partition as bootable.
+  You can do this by pressing B with the partition selected.
+  You can optionally make a swap partition. While not required, I would reccomend making one.
+  Simply create a new partion. Ideally you should make it as big as a quater of your RAM.
+  E.g. if you have 16GB of RAM, you should make the swap partition size <code>4G</code>.
+  However, you can make it bigger (Or smaller) if you feel the need.
+  Next, create your root partition. Unless you need any additional partitions, simply
   allocate any remaining space to it.<br><br>
   
   <br><br>
