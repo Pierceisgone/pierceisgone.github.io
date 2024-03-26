@@ -114,8 +114,13 @@
 
   <h2>Installing KDE Plasma</h2><br>
   KDE is a Desktop Enviornment (DE). A DE comes with a Window Manager (WM), and other useful tools/software. You can run a standalone WM, however a DE (Like KDE Plasma, in this instance) will be easier for a new user to get up and running, and will also be easier to use.
-  Think of a DE as the graphical front end of the system---you'll need it for any graphical applications/tasks. To get a working KDE installation, run <code>sudo pacman -S plasma plasma-meta sddm sddm-kcm pipewire wayland</code>. Now that you're signed into your user 
-  instead of the root user, you'll need to prefix <code>pacman</code> commands with <code>sudo</code>. 
+  Think of a DE as the graphical front end of the system---you'll need it for any graphical applications/tasks. To get a working KDE installation, run <code>sudo pacman -S plasma plasma-meta sddm sddm-kcm pipewire wayland konsole</code>. Now that you're signed into your user 
+  instead of the root user, you'll need to prefix <code>pacman</code> commands with <code>sudo</code>. For this guide I'll be using Wayland. You can use X11 with KDE Plasma, however there are some benefits to using Wayland. Such as added security. Once KDE has finished
+  installing, reboot the system. After the system finishes booting, you should be greated by a graphical login screen. Sign into your user, and then you will have access to your new Plasma desktop.<br><br>
+
+  <h2>Installing useful software</h2><br>
+  While you now have a working DE, you're still likely missing some useful software. Firstly, here's a quick rundown of how to use <code>pacman</code>: To install a package (Piece of software), use the <code>-S</code> argument, followed by the name of the package(s) that
+  you want to install. To upgrade (Update) your system, run <code>sudo pacman -Syu</code>. This will upgrade all the packages on the system to their latest versions.
   
   
 </center></div>
