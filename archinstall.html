@@ -38,7 +38,7 @@
   boot priority set to boot from the USB drive first. However, you may still
   need to go into your BIOS/UEFI and disable Secure Boot.<br><br>
 
- Once booted, check to make sure your internet connection is working by running:<br>
+ Once booted, check to make sure your internet connection is working by running:
   <code>ping https://archlinux.org/</code><br><br>
   <h2>Partitioning the disk</h2><br>
   WARNING: Make sure any and all data is backup from your drives before
@@ -106,11 +106,16 @@
   <h2>Booting into the new system</h2><br>
   Congrats! You have succuessfully installed Arch Linux! Exit the <code>chroot</code> by running <code>exit</code>. Next, run <code>umount -R /mnt</code>, and then finally, reboot the system with <code>reboot</code>. You should boot back into the live installer screen.
   Select the option to boot an existing OS. If you've done everything correctly, you should be greated with a GRUB boot screen. Press <code>enter</code> to boot Arch Linux. Or wait for GRUB to automatically boot it for you. Once you've booted into Arch, it is safe to remove
-  your USB drive. As of now, you have a fully working Arch installation!<br><br>
+  your USB drive. As of now, you have a fully working Arch installation! Next, just sign into the user you created earlier.<br><br>
 
   At this point in the guide however, I am going to encourage you to deviate from it. This guide will continue and show you how to install KDE Plasma, a Desktop Enviornment, as well as various other pieces of software. However, Arch is a DIY distro. And is designed to be
   whatever you want it to be. If you would like to quickly get a fully functional system with a DE, or already want to use KDE Plasma (And or the other various softwares), then you can continue following this guide. But, if you truly want to make Arch your own, unique system, then
-  I urge you to continue on your own without adhering to this guide.
+  I urge you to continue on your own without adhering to this guide.<br><br>
+
+  <h2>Installing KDE Plasma</h2><br>
+  KDE is a Desktop Enviornment (DE). A DE comes with a Window Manager (WM), and other useful tools/software. You can run a standalone WM, however a DE (Like KDE Plasma, in this instance) will be easier for a new user to get up and running, and will also be easier to use.
+  Think of a DE as the graphical front end of the system---you'll need it for any graphical applications/tasks. To get a working KDE installation, run <code>sudo pacman -S plasma plasma-meta sddm sddm-kcm pipewire wayland</code>. Now that you're signed into your user 
+  instead of the root user, you'll need to prefix <code>pacman</code> commands with <code>sudo</code>. 
   
   
 </center></div>
