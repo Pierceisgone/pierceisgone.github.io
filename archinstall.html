@@ -61,27 +61,27 @@
   allocate any remaining space to it.<br><br>
   
   <br><br>
-  <h1>Installation</h1><br>
-  This will install the base system. However, it will be lacking a lot of<br>
-  useful tools. We will install some extra software later--e.g. a text editor,<br>
-  browser, and DE (Desktop Enviornment). Run:<br> 
-  <code>pacstrap -K /mnt linux linux-firmware base base-devel</code><br>
-  While <code>base-devel</code> isn't necessary, it can be useful to have, so I<br>
+  <h2>Installation</h2><br>
+  This will install the base system. However, it will be lacking a lot of
+  useful tools. We will install some extra software later--e.g. a text editor,
+  browser, and DE (Desktop Enviornment). Run:
+  <code>pacstrap -K /mnt linux linux-firmware base base-devel</code>
+  While <code>base-devel</code> isn't necessary, it can be useful to have, so I
   reccomend installing it too.<br><br>
  <h2>Configuring the system</h2><br><br>
-  The <code>fstab</code> file is used to mount your disks upon boot.<br>
-  WARNING: It is important that you use the <code>-U</code> argument here.<br>
-  You want the drives to be recognised by UUID. This is because the name of<br>
-  the drive my change if a disk is added/removed, or dies.<br>
-  Going by UUID will prevent issues of the wrong drive being mounted to the<br>
+  The <code>fstab</code> file is used to mount your disks upon boot.
+  WARNING: It is important that you use the <code>-U</code> argument here.
+  You want the drives to be recognised by UUID. This is because the name of
+  the drive my change if a disk is added/removed, or dies.
+  Going by UUID will prevent issues of the wrong drive being mounted to the
   wrong directoy.<br><br>
   To generate the <code>fstab</code> file, run <code>genfstab -U /mnt >> /mnt/etc/fstab</code><br><br>
   Now, <code>chroot</code> into the new system with <code>arch-chroot /mnt</code><br><br>
-  At this point you will now need a text editor. Run <code>pacman -S nano</code><br>
+  At this point you will now need a text editor. Run <code>pacman -S nano</code>
   This guide will be using GNU nano, however, you may use whatever your preffered text editor is.<br><br>
-  Now we need to generate locals for the system, to do this run <code>nano /etc/locale.gen</code><br>
-  Next, find <code>en_US.UTF-8 UTF-8</code> and uncomment it. You do this by removing the <code>#</code> at the start of the line.<br>
-  You should also uncomment any other locales you may need. E.g. <code>ja_JP.EUC-JP EUC-JP</code> and <code>ja_JP.UTF-8 UTF-8</code> for Japanese.<br>
+  Now we need to generate locals for the system, to do this run <code>nano /etc/locale.gen</code>
+  Next, find <code>en_US.UTF-8 UTF-8</code> and uncomment it. You do this by removing the <code>#</code> at the start of the line.
+  You should also uncomment any other locales you may need. E.g. <code>ja_JP.EUC-JP EUC-JP</code> and <code>ja_JP.UTF-8 UTF-8</code> for Japanese.
   Next, run <code>locale-gen</code> to generate the locales. Then edit <code>/etc/locale.conf</code> with nano, and type <code>LANG=en_US.UTF-8</code><br><br>
   Set a root password by running <code>passwd</code><br><br>
 
