@@ -86,8 +86,8 @@
   Set a root password by running <code>passwd</code><br><br>
 
   <h2>Installing the bootloader</h2><br>
-  For this tutorial, we're going to be using GRUB. Install GRUB by running <code>pacman -S grub</code>. Next run <code>grub-install /dev/YOUR_DRIVE</code>. Do NOT set the path to your boot partition! (E.g. <code>/dev/YOUR_DRIVE1</code>. Leave it as the path for the drive
-  itself!
+  For this tutorial, we're going to be using GRUB. Install GRUB by running <code>pacman -S grub</code>. And then run <code>grub-install /dev/YOUR_DRIVE</code>. Do NOT set the path to your boot partition! (E.g. <code>/dev/YOUR_DRIVE1</code>. Leave it as the path for the drive
+  itself! Next, create GRUB's configuration file by running <code>grub-mkconfig -o /boot/grub/grub.cfg</code>. If no errors are returned, you're good to go!<br><br>
 
   <h2>Now it's time to make a user!</h2><br>
   To create a new user, run <code>useradd -mg wheel username</code>. This will create a new user in the <code>wheel</code> group. You'll need to be in this group to be able to use <code>sudo</code>. Which will allow you to run commands at root level without having to be
@@ -99,6 +99,18 @@
   So there's nothing to worry about. Scroll down until you see a line that says <code># %wheel ALL=(ALL:ALL) ALL</code>, and then uncomment it (Remove the <code>#</code> and space after it). This will allow any users in the <code>wheel</code> group to use
   <code>sudo</code>. Optionally, you can add the line <code>Defaults !tty_tickets</code> to make it so you'll only have to enter your password once (Instead of every time you run <code>sudo</code>). This is, however, technically less secure. When you're done editing 
   the file, press <code>CTRL + O</code>, and then hit enter to save the file. Then press <code>CTRL + X</code> to exit nano.
+
+  <h2>Setting the hostname</h2><br>
+  The hostname is the name of your system/PC. To set a host name, simple edit <code>/etc/hostname</code> and then set the desired hostname. Once again, you can edit the file with nano. <code>nano /etc/hostname</code>.<br><br> 
+
+  <h2>Booting into the new system</h2><br>
+  Congrats! You have succuessfully installed Arch Linux! Exit the <code>chroot</code> by running <code>exit</code>. Next, run <code>umount -R /mnt</code>, and then finally, reboot the system with <code>reboot</code>. You should boot back into the live installer screen.
+  Select the option to boot an existing OS. If you've done everything correctly, you should be greated with a GRUB boot screen. Press <code>enter</code> to boot Arch Linux. Or wait for GRUB to automatically boot it for you. Once you've booted into Arch, it is safe to remove
+  your USB drive. As of now, you have a fully working Arch installation!<br><br>
+
+  At this point in the guide however, I am going to encourage you to deviate from it. This guide will continue and show you how to install KDE Plasma, a Desktop Enviornment, as well as various other pieces of software. However, Arch is a DIY distro. And is designed to be
+  whatever you want it to be. If you would like to quickly get a fully functional system with a DE, or already want to use KDE Plasma (And or the other various softwares), then you can continue this guide. But, if you truly want to make Arch your own, unique system, then
+  I urge you to continue on your own without adhering to this guide.
   
   
 </center></div>
