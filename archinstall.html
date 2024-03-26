@@ -40,7 +40,7 @@
 
  Once booted, check to make sure your internet connection is working by running:<br>
   <code>ping https://archlinux.org/</code><br><br>
-  <h1>Partitioning the disk</h1><br>
+  <h2>Partitioning the disk</h2><br>
   WARNING: Make sure any and all data is backup from your drives before
   proceeding. Once you repartion and reformat the drives, they will be
   wiped entirely.<br><br>
@@ -85,6 +85,8 @@
   Next, run <code>locale-gen</code> to generate the locales. Then edit <code>/etc/locale.conf</code> with nano, and type <code>LANG=en_US.UTF-8</code><br><br>
   Set a root password by running <code>passwd</code><br><br>
 
-  Now it's time to make a user!
+  <h2>Now it's time to make a user!</h2><br>
+  To create a new user, run <code>useradd -mg wheel username</code>. This will create a new user in the <code>wheel</code> group. You'll need to be in this group to be able to use <code>sudo</code>. Which will allow you to run commands at root level without having to be
+  signed into the root user.
   
 </center></div>
