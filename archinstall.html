@@ -120,7 +120,12 @@
 
   <h2>Installing useful software</h2><br>
   While you now have a working DE, you're still likely missing some useful software. Firstly, here's a quick rundown of how to use <code>pacman</code>: To install a package (Piece of software), use the <code>-S</code> argument, followed by the name of the package(s) that
-  you want to install. To upgrade (Update) your system, run <code>sudo pacman -Syu</code>. This will upgrade all the packages on the system to their latest versions.
+  you want to install. To upgrade (Update) your system, run <code>sudo pacman -Syu</code>. This will upgrade all the packages on the system to their latest versions. To remove a package, use <code>sudo pacman -Rs</code>. This will remove the package, as well as any of it's
+  dependencies that aren't dependencies of other packages. I.e. this removes the package and any components that it relies on, as long as nothing else needs those components.<br><br>
+  First off, before installing any packages, you're going to need a terminal. Open Konsole--this is KDE's terminal emulator. This will function exactly like the command line you used during the installation of Arch.<br><br>
+  Now, you're going to want to enable the <code>multilib</code> repository. You'll need to enable this if you want to download packages like Steam. First off, edit <code>/etc/pacman.conf</code> (<code>sudo nano /etc/pacman.conf</code>). Scroll down until you find
+  a line that says <code>#[multilib]</code>. And underneath it will be a line that says <code>Include = /etc/pacman.d/mirrorlist</code>. Uncomment BOTH of these lines by removing the <code>#</code>'s, and then save the file.<br><br>
+  
   
   
 </center></div>
