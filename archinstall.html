@@ -68,7 +68,7 @@
   <code>pacstrap -K /mnt linux linux-firmware base base-devel</code>
   While <code>base-devel</code> isn't necessary, it can be useful to have, so I
   reccomend installing it too.<br><br>
- <h2>Configuring the system</h2><br><br>
+  <h2>Configuring the system</h2><br><br>
   The <code>fstab</code> file is used to mount your disks upon boot.
   WARNING: It is important that you use the <code>-U</code> argument here.
   You want the drives to be recognised by UUID. This is because the name of
@@ -90,6 +90,11 @@
   signed into the root user. Next, set a password for the new user by running <code>passwd username</code>.<br><br>
 
   <h2>Setting up <code>sudo</code></h2><br>
-  Install <code>sudo</code> by running <code>pacman -S sudo</code>. 
+  Install <code>sudo</code> by running <code>pacman -S sudo</code>. Next, we'll need to edit the <code>sudoers</code> file, that way we'll be able to actually use it to run commands.
+  Edit the <code>sudoers</code> file by running <code>nano /etc/sudoers</code>. You may notice a warning in the this text file telling you to only edit it with <code>visudo</code>. All we're going to be doing is uncommenting a line or two.
+  So there's nothing to worry about. Scroll down until you see a line that says <code># %wheel ALL=(ALL:ALL) ALL</code>, and then uncomment it (Remove the <code>#</code> and space after it). This will allow any users in the <code>wheel</code> group to use
+  <code>sudo</code>. Optionally, you can add the line <code>Defaults !tty_tickets</code> to make it so you'll only have to enter your password once (Instead of every time you run <code>sudo</code>). This is, however, technically less secure. When you're done editing 
+  the file, press <code>CTRL + O</code>, and then hit enter to save the file. Then press <code>CTRL + X</code> to exit nano.
+  
   
 </center></div>
