@@ -125,7 +125,10 @@
   First off, before installing any packages, you're going to need a terminal. Open Konsole--this is KDE's terminal emulator. This will function exactly like the command line you used during the installation of Arch.<br><br>
   Now, you're going to want to enable the <code>multilib</code> repository. You'll need to enable this if you want to download packages like Steam. First off, edit <code>/etc/pacman.conf</code> (<code>sudo nano /etc/pacman.conf</code>). Scroll down until you find
   a line that says <code>#[multilib]</code>. And underneath it will be a line that says <code>Include = /etc/pacman.d/mirrorlist</code>. Uncomment BOTH of these lines by removing the <code>#</code>'s, and then save the file.<br><br>
-  
+  For software you may want to install: Firefox, Libre Office, VLC, Dolphin, Steam, QEMU + Libvirt + Virtmanager (For Virtual machines), Tor Browser, qBittorrent and Thunderbird. You can install all of these by running:
+  <code>sudo pacman -S firefox libreoffice-still vlc dolphin steam qemu-full libvirt virt-manager torbrowser-launcher qbittorrent thunderbird</code>. This should cover everything essential. Additionally, for gaming, you might want Lutris 
+  (<code>sudo pacman -S lutris</code>). And for creative work, you might might like Blender (Open source software for stuff like 3D animation and modeling, 2D animation, video editing, and much more), and Krita for photo/image editing 
+  (<code>sudo pacman -S blender krita</code>).
   
   
 </center></div>
