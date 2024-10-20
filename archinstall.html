@@ -36,111 +36,15 @@
 }
 </style>
 <center><div style="text-align: left;">
-  <center><box>WARNING: THIS GUIDE IS A WORK IN PROGRESS AND IS NOT YET A PROPER GUIDE</box></center><br><br>
-  <h1>Introduction</h1><br>
-  Hello, this is an Arch Linux installation tutorial designed for new Linux users
-  who want to jump head first into a DIY Linux distrobution. This guide assumes you
-  already know what specs your PC, that you know what CPU architecture you have,
-  and that you already have the live installation image flashed onto a USB flash
-  drive. If you do not know about your PCs hardware specifications, or do not
-  know how to flash the live installation image to a USB drive, please see the
-  pre-steup guide(ADD LINK)<br><br>
-  To start off, you will need to powerdown/shutdown your computer. When it is off
-  plug in youe USB drive, and then power it back on. Most PCs should have their
-  boot priority set to boot from the USB drive first. However, you may still
-  need to go into your BIOS/UEFI and disable Secure Boot.<br><br>
+	<h1>Introduction</h1><br>
+		This is a guide on how to install Arch Linux for beginner Linux users. This guide assumes that you are brand new to Linux and have no experience. If however you have already used Linux
+		before, but still consider yourself a begginner (E.g. maybe you've already tried a couple of distros), then you can still follow this guide, and skip anything you might already know. 
+		This guide is also going to assume that you aren't necessarily tech-savvy. 
+		<br><br>
+	<h1>Before using Arch</h1><br>
+		Before you use Arch, there are some things that you need to consider however. Arch is a good, flexible and fun distro to use. However, it is not right for everyone. And you need to have
+		a proper mindset, and proper expectations going into Arch.
 
- Once booted, check to make sure your internet connection is working by running:
-  <code>ping https://archlinux.org/</code><br><br>
-  <h2>Partitioning the disk</h2><br>
-  WARNING: Make sure any and all data is backup from your drives before
-  proceeding. Once you repartion and reformat the drives, they will be
-  wiped entirely.<br><br>
-  If you're system has multiple drives, I would reccommend disconnecting all
-  of them except for the drive you want to use as a boot drive. This will make
-  things easier. And this guide will continue assuming you only have one drive installed.<br><br>
-  First off, list your drives with <code>lsblk</code>. If you're using an NVMe drive,
-  it should be called <code>nvme0n1</code>. If you're on a SATA drive, it should say <code>sda</code>.
-  If installing on a virtual machine, it should either be <code>sda</code> or <code>vda</code><br><br>
-  To start partitioning, run <code>cfdisk /dev/YOUR_DRIVE</code>. Next, create a new
-  partition, and set the size to <code>300M</code>. Then mark the partition as bootable.
-  You can do this by pressing B with the partition selected.
-  You can optionally make a swap partition. While not required, I would reccomend making one.
-  Simply create a new partion. Ideally you should make it as big as a quater of your RAM.
-  E.g. if you have 16GB of RAM, you should make the swap partition size <code>4G</code>.
-  However, you can make it bigger (Or smaller) if you feel the need.
-  Next, create your root partition. Unless you need any additional partitions, simply
-  allocate any remaining space to it.<br><br>
-  
-  <br><br>
-  <h2>Installation</h2><br>
-  This will install the base system. However, it will be lacking a lot of
-  useful tools. We will install some extra software later--e.g. a text editor,
-  browser, and DE (Desktop Enviornment). Run:
-  <code>pacstrap -K /mnt linux linux-firmware base base-devel</code>
-  While <code>base-devel</code> isn't necessary, it can be useful to have, so I
-  reccomend installing it too.<br><br>
-  <h2>Configuring the system</h2><br><br>
-  The <code>fstab</code> file is used to mount your disks upon boot.
-  WARNING: It is important that you use the <code>-U</code> argument here.
-  You want the drives to be recognised by UUID. This is because the name of
-  the drive my change if a disk is added/removed, or dies.
-  Going by UUID will prevent issues of the wrong drive being mounted to the
-  wrong directoy.<br><br>
-  To generate the <code>fstab</code> file, run <code>genfstab -U /mnt >> /mnt/etc/fstab</code><br><br>
-  Now, <code>chroot</code> into the new system with <code>arch-chroot /mnt</code><br><br>
-  At this point you will now need a text editor. Run <code>pacman -S nano</code>
-  This guide will be using GNU nano, however, you may use whatever your preffered text editor is.<br><br>
-  Now we need to generate locals for the system, to do this run <code>nano /etc/locale.gen</code>
-  Next, find <code>en_US.UTF-8 UTF-8</code> and uncomment it. You do this by removing the <code>#</code> at the start of the line.
-  You should also uncomment any other locales you may need. E.g. <code>ja_JP.EUC-JP EUC-JP</code> and <code>ja_JP.UTF-8 UTF-8</code> for Japanese.
-  Next, run <code>locale-gen</code> to generate the locales. Then edit <code>/etc/locale.conf</code> with nano, and type <code>LANG=en_US.UTF-8</code><br><br>
-  Set a root password by running <code>passwd</code><br><br>
 
-  <h2>Installing the bootloader</h2><br>
-  For this tutorial, we're going to be using GRUB. Install GRUB by running <code>pacman -S grub</code>. And then run <code>grub-install /dev/YOUR_DRIVE</code>. Do NOT set the path to your boot partition! (E.g. <code>/dev/YOUR_DRIVE1</code>. Leave it as the path for the drive
-  itself! Next, create GRUB's configuration file by running <code>grub-mkconfig -o /boot/grub/grub.cfg</code>. If no errors are returned, you're good to go!<br><br>
-
-  <h2>Now it's time to make a user!</h2><br>
-  To create a new user, run <code>useradd -mg wheel username</code>. This will create a new user in the <code>wheel</code> group. You'll need to be in this group to be able to use <code>sudo</code>. Which will allow you to run commands at root level without having to be
-  signed into the root user. Next, set a password for the new user by running <code>passwd username</code>.<br><br>
-
-  <h2>Setting up <code>sudo</code></h2><br>
-  Install <code>sudo</code> by running <code>pacman -S sudo</code>. Next, we'll need to edit the <code>sudoers</code> file, that way we'll be able to actually use it to run commands.
-  Edit the <code>sudoers</code> file by running <code>nano /etc/sudoers</code>. You may notice a warning in the this text file telling you to only edit it with <code>visudo</code>. All we're going to be doing is uncommenting a line or two.
-  So there's nothing to worry about. Scroll down until you see a line that says <code># %wheel ALL=(ALL:ALL) ALL</code>, and then uncomment it (Remove the <code>#</code> and space after it). This will allow any users in the <code>wheel</code> group to use
-  <code>sudo</code>. Optionally, you can add the line <code>Defaults !tty_tickets</code> to make it so you'll only have to enter your password once (Instead of every time you run <code>sudo</code>). This is, however, technically less secure. When you're done editing 
-  the file, press <code>CTRL + O</code>, and then hit enter to save the file. Then press <code>CTRL + X</code> to exit nano.
-
-  <h2>Setting the hostname</h2><br>
-  The hostname is the name of your system/PC. To set a host name, simple edit <code>/etc/hostname</code> and then set the desired hostname. Once again, you can edit the file with nano. <code>nano /etc/hostname</code>.<br><br> 
-
-  <h2>Booting into the new system</h2><br>
-  Congrats! You have succuessfully installed Arch Linux! Exit the <code>chroot</code> by running <code>exit</code>. Next, run <code>umount -R /mnt</code>, and then finally, reboot the system with <code>reboot</code>. You should boot back into the live installer screen.
-  Select the option to boot an existing OS. If you've done everything correctly, you should be greated with a GRUB boot screen. Press <code>enter</code> to boot Arch Linux. Or wait for GRUB to automatically boot it for you. Once you've booted into Arch, it is safe to remove
-  your USB drive. As of now, you have a fully working Arch installation! Next, just sign into the user you created earlier.<br><br>
-
-  At this point in the guide however, I am going to encourage you to deviate from it. This guide will continue and show you how to install KDE Plasma, a Desktop Enviornment, as well as various other pieces of software. However, Arch is a DIY distro. And is designed to be
-  whatever you want it to be. If you would like to quickly get a fully functional system with a DE, or already want to use KDE Plasma (And or the other various softwares), then you can continue following this guide. But, if you truly want to make Arch your own, unique system, then
-  I urge you to continue on your own without adhering to this guide.<br><br>
-
-  <h2>Installing KDE Plasma</h2><br>
-  KDE is a Desktop Enviornment (DE). A DE comes with a Window Manager (WM), and other useful tools/software. You can run a standalone WM, however a DE (Like KDE Plasma, in this instance) will be easier for a new user to get up and running, and will also be easier to use.
-  Think of a DE as the graphical front end of the system---you'll need it for any graphical applications/tasks. To get a working KDE installation, run <code>sudo pacman -S plasma plasma-meta sddm sddm-kcm pipewire wayland konsole</code>. Now that you're signed into your user 
-  instead of the root user, you'll need to prefix <code>pacman</code> commands with <code>sudo</code>. For this guide I'll be using Wayland. You can use X11 with KDE Plasma, however there are some benefits to using Wayland. Such as added security. Once KDE has finished
-  installing, reboot the system. After the system finishes booting, you should be greated by a graphical login screen. Sign into your user, and then you will have access to your new Plasma desktop.<br><br>
-
-  <h2>Installing useful software</h2><br>
-  While you now have a working DE, you're still likely missing some useful software. Firstly, here's a quick rundown of how to use <code>pacman</code>: To install a package (Piece of software), use the <code>-S</code> argument, followed by the name of the package(s) that
-  you want to install. To upgrade (Update) your system, run <code>sudo pacman -Syu</code>. This will upgrade all the packages on the system to their latest versions. To remove a package, use <code>sudo pacman -Rs</code>. This will remove the package, as well as any of it's
-  dependencies that aren't dependencies of other packages. I.e. this removes the package and any components that it relies on, as long as nothing else needs those components.<br><br>
-  First off, before installing any packages, you're going to need a terminal. Open Konsole--this is KDE's terminal emulator. This will function exactly like the command line you used during the installation of Arch.<br><br>
-  Now, you're going to want to enable the <code>multilib</code> repository. You'll need to enable this if you want to download packages like Steam. First off, edit <code>/etc/pacman.conf</code> (<code>sudo nano /etc/pacman.conf</code>). Scroll down until you find
-  a line that says <code>#[multilib]</code>. And underneath it will be a line that says <code>Include = /etc/pacman.d/mirrorlist</code>. Uncomment BOTH of these lines by removing the <code>#</code>'s, and then save the file.<br><br>
-  For software you may want to install: Firefox, Libre Office, VLC, Dolphin, Steam, QEMU + Libvirt + Virtmanager (For Virtual machines), Tor Browser, qBittorrent and Thunderbird. You can install all of these by running:
-  <code>sudo pacman -S firefox libreoffice-still vlc dolphin steam qemu-full libvirt virt-manager torbrowser-launcher qbittorrent thunderbird</code>. This should cover everything essential. Additionally, for gaming, you might want Lutris 
-  (<code>sudo pacman -S lutris</code>). And for creative work, you might might like Blender (Open source software for stuff like 3D animation and modeling, 2D animation, video editing, and much more), and Krita for photo/image editing 
-  (<code>sudo pacman -S blender krita</code>).
-  
   
 </center></div>
